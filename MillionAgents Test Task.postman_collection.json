@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "e6c0d366-1b87-4718-a2c3-74f43006236e",
+		"name": "MillionAgents Test Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19836453",
+		"_collection_link": "https://burenkaspacecode.postman.co/workspace/Team-Workspace~0a34ee09-454d-4f00-82db-4f1c7b648d79/collection/19836453-e6c0d366-1b87-4718-a2c3-74f43006236e?action=share&source=collection_link&creator=19836453"
+	},
+	"item": [
+		{
+			"name": "Создание короткой ссылки",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://www.example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/shorten",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"shorten"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "https://www.example.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редирект на полную ссылку",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/HPPA0X",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"HPPA0X"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

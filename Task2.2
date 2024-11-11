@@ -1,0 +1,29 @@
+SELECT rep.barcode, rep.price, pos.title
+FROM reports rep
+JOIN pos ON rep.pos_id = pos.id
+WHERE pos.title IN (
+    SELECT title
+    FROM pos
+    GROUP BY title
+    HAVING COUNT(*) > 1
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
