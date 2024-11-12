@@ -48,14 +48,3 @@ class SkypeMasker:
             masked_username = self.mask * 3
             return f'{self.skype_string[:start]}{masked_username}{self.skype_string[end:]}'
         return self.skype_string
-
-
-
-
-if __name__ == '__main__':
-
-    skype1 = SkypeMasker("skype:alex.max")
-    print(skype1.do_mask())
-
-    skype2 = SkypeMasker('<a href="skype:alex.max?call">skype</a>')
-    print(skype2.do_mask())
