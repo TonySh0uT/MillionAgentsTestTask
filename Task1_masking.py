@@ -34,19 +34,18 @@ class PhoneMasker:
 class SkypeMasker:
     def __init__(self, skype_string: str, mask: str = 'x'):
         self.skype_string = skype_string
-        self.mask_char = mask
+        self.mask = mask
 
-    def mask(self):
+    def do_mask(self):
         # Простой вариант вида skype:alex.max
         if self.skype_string.startswith("skype:"):
-            return "skype:" + self.mask_char * 3
+            return "skype:" + self.mask * 3
 
         # Вариант со ссылкой вида href=\"skype:alex.max?call\">skype</a>"
         if self.skype_string.startswith('<a href="skype:') and self.skype_string.endswith('">skype</a>'):
             start = len('<a href="skype:')
             end = self.skype_string.index('?call">skype</a>')
-            masked_username = self.mask_char * 3
-            return self.skype_string[:start] + masked_username + self.skype_string[end:]
+            masked_username = self.mask * 3
             return f'{self.skype_string[:start]}{masked_username}{self.skype_string[end:]}'
         return self.skype_string
 
@@ -56,7 +55,7 @@ class SkypeMasker:
 if __name__ == '__main__':
 
     skype1 = SkypeMasker("skype:alex.max")
-    print(skype1.mask())
+    print(skype1.do_mask())
 
     skype2 = SkypeMasker('<a href="skype:alex.max?call">skype</a>')
-    print(skype2.mask())
+    print(skype2.do_mask())
